@@ -28,10 +28,7 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
 
     public async Task<IActionResult> OnPostAsync()
     {
-      await worker.runAsync(context =>
-      {
-        context.save(area);
-      });
+      await worker.runAsync(context => context.save(area));
 
       return RedirectToPage("./Index");
     }
