@@ -36,7 +36,10 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
 
     public async Task<IActionResult> OnPostAsync()
     {
-      await worker.runAsync(context => context.delete(area));
+      await worker.runAsync(context =>
+      {
+        context.delete(area);
+      });
 
       return RedirectToPage("./Index");
     }

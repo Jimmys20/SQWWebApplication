@@ -38,7 +38,10 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
     {
       area.state = SQWEntityState.esModified;
 
-      await worker.runAsync(context => context.save(area));
+      await worker.runAsync(context =>
+      {
+        context.save(area);
+      });
 
       return RedirectToPage("./Index");
     }
