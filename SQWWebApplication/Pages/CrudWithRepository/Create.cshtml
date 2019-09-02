@@ -1,0 +1,14 @@
+﻿@page
+@model SQWWebApplication.Pages.CrudWithRepository.CreateModel
+
+<form method="post">
+  <div class="form-group">
+    <input class="form-control" asp-for="area.areaCode" />
+  </div>
+  <div class="form-group">
+    <input class="form-control" asp-for="area.description" />
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Save" class="btn btn-primary" />
+  </div>
+</form>

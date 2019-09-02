@@ -8,8 +8,4 @@
     <PackageReference Include="northdigital.sqw" Version="0.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\CrudWithRepository\" />
-  </ItemGroup>
-
 </Project>

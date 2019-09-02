@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SQWWebApplication.Repositories
 {
-  public class AreaRepository
+  public class AreaRepository : SQWRepository<Area>
   {
     private readonly ISQWWorker worker;
 
-    public AreaRepository(ISQWWorker worker)
+    public AreaRepository(ISQWWorker worker) : base(worker)
     {
       this.worker = worker;
     }
@@ -42,30 +42,6 @@ namespace SQWWebApplication.Repositories
       });
 
       return area;
-    }
-
-    public async Task deleteAsync(Area area)
-    {
-      await worker.runAsync(context =>
-      {
-        context.delete(area);
-      });
-    }
-
-    public async Task insertAsync(Area area)
-    {
-      await worker.runAsync(context =>
-      {
-        context.save(area);
-      });
-    }
-
-    public async Task updateAsync(Area area)
-    {
-      await worker.runAsync(context =>
-      {
-        context.save(area);
-      });
     }
   }
 }

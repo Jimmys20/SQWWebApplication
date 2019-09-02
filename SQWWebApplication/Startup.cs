@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SQW;
 using SQW.Interfaces;
+using SQWWebApplication.Repositories;
 
 namespace SQWWebApplication
 {
@@ -36,6 +37,8 @@ namespace SQWWebApplication
       };
 
       services.AddSingleton<ISQWWorker>(new SQWOraWorker(config, new SQWSequenceGenerator()));
+
+      services.AddSingleton<AreaRepository>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
