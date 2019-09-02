@@ -1,0 +1,28 @@
+﻿@page
+@model SQWWebApplication.Pages.CrudWithoutRepository.IndexModel
+
+<p>
+  <a asp-page="./Create">Create</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Area Code</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var area in Model.areas)
+    {
+      <tr>
+        <td>@area.areaCode</td>
+        <td>@area.description</td>
+        <td>
+          <a asp-page="./Edit" asp-route-areaCode="@area.areaCode">Edit</a>
+          <a asp-page="./Delete" asp-route-areaCode="@area.areaCode">Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

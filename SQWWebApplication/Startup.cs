@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SQW;
+using SQW.Interfaces;
 
 namespace SQWWebApplication
 {
@@ -24,6 +26,16 @@ namespace SQWWebApplication
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddRazorPages();
+
+      var config = new SQWOraConfig
+      {
+        host = "localhost",
+        instance = "casino",
+        userName = "system",
+        password = "sporades"
+      };
+
+      services.AddSingleton<ISQWWorker>(new SQWOraWorker(config, new SQWSequenceGenerator()));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
