@@ -28,7 +28,7 @@ namespace SQWWebApplication.Repositories
     {
       await worker.runAsync(context =>
       {
-        context.save(t);
+        context.insert(t);
       });
     }
 
@@ -36,7 +36,7 @@ namespace SQWWebApplication.Repositories
     {
       await worker.runAsync(context =>
       {
-        context.save(t);
+        context.update(t);
       });
     }
   }
