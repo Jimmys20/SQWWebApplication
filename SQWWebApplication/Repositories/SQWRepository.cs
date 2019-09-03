@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SQWWebApplication.Repositories
 {
-  public class SQWRepository<T> where T : SQWEntity
+  public class SQWRepository<T> where T : ISQWEntity
   {
     private readonly ISQWWorker worker;
 
