@@ -43,5 +43,10 @@ namespace SQWWebApplication.Repositories
 
       return area;
     }
+
+    public async Task deleteByIdAsync(string areaCode)
+    {
+      await deleteAsync(new Area { areaCode = areaCode });
+    }
   }
 }

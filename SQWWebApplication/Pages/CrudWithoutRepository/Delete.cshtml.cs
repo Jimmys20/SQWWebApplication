@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SQW.Interfaces;
 using SQWWebApplication.Models;
+using SQWWebApplication.Extensions;
 
 namespace SQWWebApplication.Pages.CrudWithoutRepository
 {
@@ -38,7 +39,7 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
     {
       await worker.runAsync(context =>
       {
-        context.delete(area);
+        context.delete<Area>(area.areaCode);
       });
 
       return RedirectToPage("./Index");
