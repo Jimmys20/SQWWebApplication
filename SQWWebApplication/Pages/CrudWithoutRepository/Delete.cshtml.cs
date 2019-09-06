@@ -19,7 +19,6 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
       this.worker = worker;
     }
 
-    [BindProperty]
     public Area area { get; set; }
 
     public async Task<IActionResult> OnGetAsync(string areaCode)
@@ -35,11 +34,14 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
       return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string areaCode)
     {
+      var area = new Area { areaCode = areaCode };
+      area.state = SQWEntityState.esDeleted;
+
       await worker.runAsync(context =>
       {
-        context.delete<Area>(area.areaCode);
+        context.save(area);
       });
 
       return RedirectToPage("./Index");

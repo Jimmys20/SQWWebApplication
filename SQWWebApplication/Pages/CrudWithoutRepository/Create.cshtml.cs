@@ -30,7 +30,7 @@ namespace SQWWebApplication.Pages.CrudWithoutRepository
     {
       await worker.runAsync(context =>
       {
-        context.insert(area);
+        context.save(area);
       });
 
       return RedirectToPage("./Index");

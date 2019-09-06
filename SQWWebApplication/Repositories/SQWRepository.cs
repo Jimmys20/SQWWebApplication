@@ -18,9 +18,10 @@ namespace SQWWebApplication.Repositories
 
     public async Task deleteAsync(T t)
     {
+      t.state = SQWEntityState.esDeleted;
       await worker.runAsync(context =>
       {
-        context.delete(t);
+        context.save(t);
       });
     }
 
@@ -28,15 +29,16 @@ namespace SQWWebApplication.Repositories
     {
       await worker.runAsync(context =>
       {
-        context.insert(t);
+        context.save(t);
       });
     }
 
     public async Task updateAsync(T t)
     {
+      t.state = SQWEntityState.esModified;
       await worker.runAsync(context =>
       {
-        context.update(t);
+        context.save(t);
       });
     }
   }
