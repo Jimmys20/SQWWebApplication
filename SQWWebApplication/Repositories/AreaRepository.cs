@@ -31,7 +31,7 @@ namespace SQWWebApplication.Repositories
 
     public async Task<Area> getByAreaCodeAsync(string areaCode)
     {
-      Area area = null;
+      Area area = null; 
 
       await worker.runAsync(context =>
       {
