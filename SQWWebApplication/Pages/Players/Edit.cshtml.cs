@@ -43,6 +43,7 @@ namespace SQWWebApplication.Pages.Players
 
       mapper.Map(playerVm, player);
       await repository.editPlayerAsync(player);
+      ///
 
       return RedirectToPage("./Index");
     }
